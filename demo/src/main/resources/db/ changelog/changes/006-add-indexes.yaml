@@ -1,0 +1,35 @@
+databaseChangeLog:
+  - changeSet:
+      id: 6
+      author: your_name
+      changes:
+        - createIndex:
+            indexName: idx_boards_owner_id
+            tableName: boards
+            columns:
+              - column:
+                  name: owner_id
+        - createIndex:
+            indexName: idx_columns_board_id
+            tableName: columns
+            columns:
+              - column:
+                  name: board_id
+        - createIndex:
+            indexName: idx_tasks_column_id
+            tableName: tasks
+            columns:
+              - column:
+                  name: column_id
+        - createIndex:
+            indexName: idx_tasks_assignee_id
+            tableName: tasks
+            columns:
+              - column:
+                  name: assignee_id
+        - createIndex:
+            indexName: idx_board_participants_user_id
+            tableName: board_participants
+            columns:
+              - column:
+                  name: user_id

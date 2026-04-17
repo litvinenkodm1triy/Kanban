@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/changes/001-create-users-table.yaml
+  - include:
+      file: db/changelog/changes/002-create-boards-table.yaml
+  - include:
+      file: db/changelog/changes/003-create-columns-table.yaml
+  - include:
+      file: db/changelog/changes/004-create-tasks-table.yaml
+  - include:
+      file: db/changelog/changes/005-create-board-participants-table.yaml
+  - include:
+      file: db/changelog/changes/006-add-indexes.yaml

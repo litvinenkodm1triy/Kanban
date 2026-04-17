@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: 5
+      author: your_name
+      changes:
+        - createTable:
+            tableName: board_participants
+            columns:
+              - column:
+                  name: board_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_board_participants_board
+                    references: boards(id)
+                    primaryKey: true
+              - column:
+                  name: user_id
+                  type: UUID
+                  constraints:
+                    foreignKeyName: fk_board_participants_user
+                    references: users(id)
+                    primaryKey: true
