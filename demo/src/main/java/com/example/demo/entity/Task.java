@@ -28,9 +28,9 @@ public class Task {
 
     private String description;
 
-    private LocalDateTime dueData;
+    private LocalDateTime dueDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private User assignee;
 
     @Enumerated(EnumType.STRING)
@@ -40,10 +40,6 @@ public class Task {
     private Priority priority;
 
     private double position;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "board_id")
-    private Board board;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "column_id")

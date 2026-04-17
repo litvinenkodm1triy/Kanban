@@ -7,7 +7,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -19,7 +21,7 @@ import java.util.UUID;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @Column(unique = true)
@@ -31,7 +33,7 @@ public class User {
     private String password;
 
     @OneToMany(mappedBy = "owner")
-    private List<Board> boards;
+    private Set<Board> boards = new HashSet<>();
 
     @ManyToMany(mappedBy = "participants")
     private List<Board> participatedBoards;

@@ -1,0 +1,48 @@
+databaseChangeLog:
+  - changeSet:
+      id: 4
+      author: your_name
+      changes:
+        - createTable:
+            tableName: tasks
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: task_name
+                  type: VARCHAR(255)
+              - column:
+                  name: title
+                  type: VARCHAR(255)
+              - column:
+                  name: description
+                  type: TEXT
+              - column:
+                  name: due_date
+                  type: TIMESTAMP
+              - column:
+                  name: assignee_id
+                  type: UUID
+                  constraints:
+                    foreignKeyName: fk_task_assignee
+                    references: users(id)
+              - column:
+                  name: status
+                  type: VARCHAR(50)
+              - column:
+                  name: priority
+                  type: VARCHAR(50)
+              - column:
+                  name: position
+                  type: DOUBLE PRECISION
+              - column:
+                  name: column_id
+                  type: BIGINT
+                  constraints:
+                    foreignKeyName: fk_task_column
+                    references: columns(id)
